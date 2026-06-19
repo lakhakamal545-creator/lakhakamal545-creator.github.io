@@ -3,45 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kamal Lakha - MBA Financial Markets Student. Portfolio specializing in Equity Research, Financial Modeling, and Derivatives Analysis.">
-    <meta name="keywords" content="Kamal Lakha, Finance Portfolio, Equity Research, Financial Modeling, MBA Financial Markets, Investment Banking">
+    <!-- SEO & Open Graph Tags -->
+    <meta name="description" content="Kamal Lakha - MBA Financial Markets Portfolio. Specializing in Equity Research, Financial Modeling, and Derivatives Analysis.">
+    <meta name="keywords" content="Kamal Lakha, Finance Portfolio, Equity Research, Financial Modeling, Derivatives Analysis, Investment Banking">
+    <meta property="og:title" content="Kamal Lakha | Financial Markets Portfolio">
+    <meta property="og:description" content="MBA Finance professional specializing in Equity Research and Investment Banking.">
+    <meta property="og:image" content="50KB.jpg">
+    <meta property="og:type" content="website">
     <title>Kamal Lakha | Financial Markets Portfolio</title>
     
-    <!-- Google Fonts -->
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* CSS Variables - Premium Light Banking Theme */
+        /* CSS Variables & Theme Definitions */
         :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --text-primary: #1a1a1a;
-            --text-secondary: #4a5568;
             --navy-blue: #0A2342;
             --navy-light: #173f70;
             --gold: #C5A059;
             --gold-hover: #dfb668;
-            --card-bg: #ffffff;
+            --white: #ffffff;
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --shadow: 0 8px 32px rgba(10, 35, 66, 0.1);
             --border-color: #e2e8f0;
-            --shadow: 0 10px 30px rgba(10, 35, 66, 0.08);
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Dark Mode Theme (Deep Navy, not black) */
         [data-theme="dark"] {
-            --bg-primary: #061121;
-            --bg-secondary: #0A192F;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --navy-blue: #112240;
-            --navy-light: #233554;
+            --navy-blue: #0A192F;
+            --navy-light: #112240;
             --gold: #D4AF37;
             --gold-hover: #F3C94F;
-            --card-bg: #112240;
+            --bg-primary: #020c1b;
+            --bg-secondary: #0A192F;
+            --text-primary: #f8fafc;
+            --text-secondary: #a8b2d1;
+            --glass-bg: rgba(10, 25, 47, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             --border-color: #233554;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -60,32 +66,17 @@
             color: var(--text-primary);
             line-height: 1.6;
             transition: var(--transition);
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            color: var(--navy-blue);
-        }
-
-        [data-theme="dark"] h1, 
-        [data-theme="dark"] h2, 
-        [data-theme="dark"] h3, 
-        [data-theme="dark"] h4 {
             color: var(--text-primary);
         }
 
         a {
             text-decoration: none;
-            color: var(--navy-light);
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: var(--gold);
-        }
-
-        ul {
-            list-style: none;
+            color: inherit;
         }
 
         .container {
@@ -94,17 +85,30 @@
             padding: 0 2rem;
         }
 
+        section {
+            padding: 6rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--bg-secondary);
+        }
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
+            color: var(--navy-blue);
+        }
+
+        [data-theme="dark"] .section-title {
+            color: var(--gold);
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 60px;
@@ -112,62 +116,36 @@
             background-color: var(--gold);
         }
 
-        section {
-            padding: 5rem 0;
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--navy-blue);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
         }
-
-        section:nth-child(even) {
-            background-color: var(--bg-secondary);
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid rgba(255,255,255,0.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--navy-blue);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--navy-light);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .btn-gold {
-            background-color: var(--gold);
-            color: #fff;
-        }
-
-        .btn-gold:hover {
-            background-color: var(--gold-hover);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        /* Navbar */
+        /* Navbar (Glassmorphism) */
         nav {
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
             transition: var(--transition);
-        }
-
-        [data-theme="dark"] nav {
-            background-color: rgba(6, 17, 33, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .nav-container {
@@ -179,12 +157,8 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--navy-blue);
-        }
-
-        [data-theme="dark"] .logo {
             color: var(--gold);
         }
 
@@ -196,7 +170,7 @@
 
         .nav-links a {
             font-weight: 500;
-            color: var(--text-primary);
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
@@ -212,30 +186,38 @@
             transition: var(--transition);
         }
 
-        .theme-toggle:hover {
-            color: var(--gold);
-        }
-
-        /* Hero Section */
+        /* Hero Section with Animated Background */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding-top: 80px;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            background: linear-gradient(-45deg, var(--navy-blue), var(--navy-light), #0f3057, #1b4965);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--white);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 4rem;
             align-items: center;
+            z-index: 2;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            color: var(--white);
+            letter-spacing: -1px;
         }
 
         .hero-text h2 {
@@ -248,67 +230,162 @@
 
         .hero-text p {
             font-size: 1.1rem;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--navy-blue);
+            transform: translateY(-2px);
         }
 
         .hero-image {
             position: relative;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            max-height: 500px; /* Helps keep photo well-proportioned */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 4px solid var(--gold);
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
-            object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
+            object-fit: cover;
         }
 
-        .hero-image:hover img {
-            transform: scale(1.05);
+        /* Open To Work Banner */
+        .otw-banner {
+            background: var(--gold);
+            color: var(--navy-blue);
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .otw-banner span {
+            margin: 0 1rem;
+            display: inline-block;
         }
 
         /* About & Education */
-        .about-edu-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .edu-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--gold);
-        }
-
-        .edu-card h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Skills */
-        .skills-container {
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
         }
 
-        .skill-group h3 {
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .edu-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .edu-item:last-child { border: none; margin: 0; padding: 0; }
+        
+        .edu-item h4 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+        .edu-item p { color: var(--gold); font-weight: 600; }
+        .edu-item .cgpa { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem; }
+
+        /* Key Highlights Dashboard */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--gold);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        [data-theme="dark"] .stat-icon { color: var(--gold); }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Technical Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
         }
 
         .skill-item {
@@ -335,39 +412,9 @@
             width: 0;
             transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
         }
+        [data-theme="dark"] .progress { background-color: var(--gold); }
 
-        [data-theme="dark"] .progress {
-            background-color: var(--gold);
-        }
-
-        .soft-skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-        }
-
-        .soft-skill-badge {
-            background: var(--bg-secondary);
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-
-        .soft-skill-badge:hover {
-            border-color: var(--gold);
-            color: var(--navy-blue);
-            background: var(--card-bg);
-        }
-        
-        [data-theme="dark"] .soft-skill-badge:hover {
-            color: var(--gold);
-        }
-
-        /* Experience */
+        /* Experience Timeline */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -377,10 +424,8 @@
         .timeline::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 20px;
-            height: 100%;
-            width: 2px;
+            top: 0; left: 20px;
+            height: 100%; width: 2px;
             background: var(--border-color);
         }
 
@@ -392,90 +437,73 @@
 
         .timeline-dot {
             position: absolute;
-            left: 11px;
-            top: 5px;
-            width: 20px;
-            height: 20px;
+            left: 11px; top: 5px;
+            width: 20px; height: 20px;
             background: var(--gold);
             border-radius: 50%;
             border: 4px solid var(--bg-primary);
         }
 
         .timeline-content {
-            background: var(--card-bg);
+            background: var(--bg-secondary);
             padding: 2rem;
             border-radius: 8px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
 
-        .timeline-content h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .role {
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
+        .timeline-content h3 { color: var(--navy-blue); margin-bottom: 0.5rem; }
+        [data-theme="dark"] .timeline-content h3 { color: var(--gold); }
+        
         .timeline-content ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .timeline-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
             color: var(--text-secondary);
+        }
+        
+        .timeline-content ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
         }
 
         /* Projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .project-card {
-            background: var(--card-bg);
+            background: var(--bg-secondary);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             box-shadow: var(--shadow);
             border-top: 4px solid var(--navy-blue);
             transition: var(--transition);
+            text-align: center;
         }
-
-        [data-theme="dark"] .project-card {
-            border-top: 4px solid var(--gold);
-        }
+        [data-theme="dark"] .project-card { border-top-color: var(--gold); }
 
         .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.15);
         }
 
         .project-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--gold);
             margin-bottom: 1.5rem;
         }
 
-        .project-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .project-card ul {
-            list-style-type: none;
-            color: var(--text-secondary);
-        }
-
-        .project-card ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card ul li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-        }
+        .project-card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
 
         /* Certifications */
         .cert-container {
@@ -486,8 +514,9 @@
         }
 
         .cert-badge {
-            background: var(--navy-blue);
-            color: #fff;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
             font-size: 0.9rem;
@@ -496,117 +525,168 @@
             align-items: center;
             gap: 0.5rem;
             transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
+
+        .cert-badge i { color: var(--gold); }
 
         .cert-badge:hover {
-            background: var(--gold);
+            background: var(--navy-blue);
+            color: var(--white);
             transform: scale(1.05);
+            border-color: var(--navy-blue);
+        }
+        [data-theme="dark"] .cert-badge:hover {
+            background: var(--gold);
+            color: var(--navy-blue);
+            border-color: var(--gold);
         }
 
-        /* Achievements */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .achievement-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-primary);
-            border-radius: 8px;
+        /* Resume Embedded */
+        .resume-container {
+            width: 100%;
+            height: 700px;
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
         }
 
-        .achievement-card i {
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .contact-item i {
             font-size: 2.5rem;
             color: var(--gold);
             margin-bottom: 1rem;
         }
 
-        /* Contact */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            color: var(--navy-blue);
-        }
-        
-        [data-theme="dark"] .contact-item i {
-            color: var(--gold);
+        .contact-item a {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 500;
         }
 
         /* Footer */
         footer {
             background: var(--navy-blue);
-            color: #fff;
+            color: var(--white);
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            border-top: 3px solid var(--gold);
         }
 
-        [data-theme="dark"] footer {
-            background: #040d1a;
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Animations */
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* Floating Buttons */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .whatsapp-btn {
+            right: 30px;
+            background-color: #25D366;
+        }
+        .whatsapp-btn:hover { background-color: #1ebd5a; transform: scale(1.1); }
+
+        .back-top-btn {
+            right: 90px;
+            background-color: var(--gold);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .back-top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .back-top-btn:hover { background-color: var(--gold-hover); transform: scale(1.1); }
+
+        /* Scroll Animations */
         .animate-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-
         .animate-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content, .about-edu-grid, .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none; 
-            }
+        @media (max-width: 900px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-image { max-width: 400px; margin: 0 auto; }
+            .about-grid, .skills-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simple mobile menu handling for single file */
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navbar -->
     <nav>
         <div class="container nav-container">
-            <div class="logo">KL.</div>
+            <a href="#" class="logo">KL.</a>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
+                <a href="#resume">Resume</a>
                 <a href="#contact">Contact</a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
@@ -620,65 +700,97 @@
         <div class="container hero-content">
             <div class="hero-text animate-up">
                 <h1>Kamal Lakha</h1>
-                <h2>MBA (Financial Markets) | Equity Research | Financial Modeling</h2>
-                <p>Results-driven MBA Finance student specializing in Financial Markets with practical experience in investment research, equity derivatives, financial modeling, valuation, portfolio analysis, and risk management. Passionate about equity research, investment banking, and financial markets.</p>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <!-- Updated Resume Link -->
+                <h2>MBA (Financial Markets) | Equity Research | Financial Modeling | Derivatives Analysis</h2>
+                <p>Results-driven MBA Finance student specializing in Financial Markets with practical experience in investment research, equity derivatives, financial modeling, valuation, portfolio analysis, and risk management. Passionate about equity research and capital markets.</p>
+                <div class="hero-buttons">
                     <a href="KAMAL LAKHA (2).pdf" target="_blank" class="btn btn-gold"><i class="fas fa-download"></i> Download Resume</a>
+                    <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/lakhakamal545-creator" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
                 </div>
             </div>
-            <!-- Updated Profile Photo -->
             <div class="hero-image animate-up" style="transition-delay: 0.2s;">
-                <img src="50KB.jpg" alt="Kamal Lakha Portfolio Photo">
+                <img src="50KB.jpg" alt="Kamal Lakha">
             </div>
         </div>
     </section>
+
+    <!-- Open To Work Banner -->
+    <div class="otw-banner">
+        <span><i class="fas fa-briefcase"></i> Open to Opportunities in:</span>
+        <span>• Equity Research</span>
+        <span>• Investment Banking</span>
+        <span>• Financial Analysis</span>
+        <span>• Risk Management</span>
+        <span>• Capital Markets</span>
+    </div>
 
     <!-- About & Education -->
     <section id="about">
         <div class="container">
             <h2 class="section-title animate-up">Profile & Education</h2>
-            <div class="about-edu-grid">
-                <div class="about-text animate-up">
-                    <h3>About Me</h3>
-                    <p style="margin-top: 1rem; color: var(--text-secondary);">I am currently pursuing an MBA in Financial Markets from Lovely Professional University. My academic background and practical internships have provided strong exposure to equity derivatives, options trading, financial statement analysis, valuation techniques, and portfolio management. I aim to build a career in equity research, investment analysis, and financial markets.</p>
+            <div class="about-grid">
+                <div class="glass-card animate-up">
+                    <h3><i class="fas fa-user-tie" style="color: var(--gold); margin-right: 10px;"></i> About Me</h3>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">MBA Financial Markets student with practical experience in derivatives analysis, financial modeling, valuation, equity research, and portfolio management. Passionate about investment research and capital markets.</p>
                 </div>
-                <div class="education animate-up" style="transition-delay: 0.2s;">
-                    <h3>Academic Background</h3>
+                <div class="glass-card animate-up" style="transition-delay: 0.2s;">
+                    <h3><i class="fas fa-graduation-cap" style="color: var(--gold); margin-right: 10px;"></i> Education</h3>
                     <div style="margin-top: 1.5rem;">
-                        <div class="edu-card">
+                        <div class="edu-item">
                             <h4>Lovely Professional University</h4>
-                            <p style="color: var(--gold); font-weight: 500;">MBA (Financial Markets)</p>
-                            <p style="color: var(--text-secondary); margin-top: 0.5rem;"><i class="fas fa-graduation-cap"></i> CGPA: 8.50</p>
+                            <p>MBA Financial Markets</p>
+                            <p class="cgpa"><i class="fas fa-star"></i> CGPA 8.50</p>
                         </div>
-                        <div class="edu-card">
+                        <div class="edu-item">
                             <h4>Teerthanker Mahaveer University</h4>
-                            <p style="color: var(--gold); font-weight: 500;">Bachelor of Commerce</p>
-                            <p style="color: var(--text-secondary); margin-top: 0.5rem;"><i class="fas fa-graduation-cap"></i> CGPA: 7.00</p>
+                            <p>Bachelor of Commerce</p>
+                            <p class="cgpa"><i class="fas fa-star"></i> CGPA 7.00</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Key Highlights Dashboard -->
+            <div class="dashboard-grid">
+                <div class="stat-card animate-up">
+                    <i class="fas fa-chart-line stat-icon"></i>
+                    <div class="stat-number"><span class="counter" data-target="26">0</span>%</div>
+                    <div class="stat-label">Portfolio Return</div>
+                </div>
+                <div class="stat-card animate-up" style="transition-delay: 0.1s;">
+                    <i class="fas fa-certificate stat-icon"></i>
+                    <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
+                    <div class="stat-label">Certifications</div>
+                </div>
+                <div class="stat-card animate-up" style="transition-delay: 0.2s;">
+                    <i class="fas fa-building stat-icon"></i>
+                    <div class="stat-number"><span class="counter" data-target="2">0</span></div>
+                    <div class="stat-label">Finance Internships</div>
+                </div>
+                <div class="stat-card animate-up" style="transition-delay: 0.3s;">
+                    <i class="fas fa-award stat-icon"></i>
+                    <div class="stat-number"><span class="counter" data-target="8.50">0</span></div>
+                    <div class="stat-label">MBA CGPA</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Technical Skills -->
     <section id="skills">
         <div class="container">
-            <h2 class="section-title animate-up">Professional Skills</h2>
-            <div class="skills-container">
-                <!-- Technical Skills -->
+            <h2 class="section-title animate-up">Technical Expertise</h2>
+            <div class="skills-grid">
+                
                 <div class="skill-group animate-up">
-                    <h3><i class="fas fa-chart-line" style="color: var(--gold);"></i> Technical Competencies</h3>
-                    
                     <div class="skill-item">
                         <div class="skill-info"><span>Financial Modeling & DCF Valuation</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
+                        <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info"><span>Equity Research & Fundamental Analysis</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+                        <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info"><span>Equity Derivatives & Options Trading</span></div>
@@ -686,19 +798,22 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-info"><span>Technical Analysis</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+                        <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
                     </div>
+                </div>
+
+                <div class="skill-group animate-up" style="transition-delay: 0.2s;">
                     <div class="skill-item">
                         <div class="skill-info"><span>Portfolio & Risk Management</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="82%"></div></div>
+                        <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info"><span>Advanced Excel & SQL</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+                        <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info"><span>Power BI & Tableau</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+                        <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info"><span>Bloomberg Terminal & Reuters Eikon</span></div>
@@ -706,19 +821,6 @@
                     </div>
                 </div>
 
-                <!-- Soft Skills -->
-                <div class="skill-group animate-up" style="transition-delay: 0.2s;">
-                    <h3><i class="fas fa-users-cog" style="color: var(--gold);"></i> Soft Skills</h3>
-                    <div class="soft-skills-grid" style="margin-top: 1.5rem;">
-                        <div class="soft-skill-badge">Analytical Thinking</div>
-                        <div class="soft-skill-badge">Problem Solving</div>
-                        <div class="soft-skill-badge">Communication</div>
-                        <div class="soft-skill-badge">Leadership</div>
-                        <div class="soft-skill-badge">Team Collaboration</div>
-                        <div class="soft-skill-badge">Strategic Decision Making</div>
-                        <div class="soft-skill-badge">Attention to Detail</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -726,21 +828,21 @@
     <!-- Internship Experience -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title animate-up">Internship Experience</h2>
+            <h2 class="section-title animate-up">Experience Timeline</h2>
             <div class="timeline">
                 
                 <div class="timeline-item animate-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>Nirmal Bang Securities Pvt. Ltd.</h3>
-                        <p class="role">Trading & Analysis of Equity Derivatives Intern</p>
+                        <p style="color: var(--gold); font-weight: 600;">Equity Derivatives Intern</p>
                         <ul>
-                            <li>Equity derivatives analysis using futures and options</li>
-                            <li>Option Greeks and implied volatility analysis</li>
-                            <li>Trade cycle management</li>
-                            <li>Hedging and arbitrage strategy analysis</li>
-                            <li>Risk monitoring and reporting</li>
-                            <li>Client onboarding and KYC support</li>
+                            <li>Equity Derivatives Analysis</li>
+                            <li>Option Greeks evaluation and tracking</li>
+                            <li>Volatility Analysis for market trends</li>
+                            <li>Trade Cycle Management execution</li>
+                            <li>Hedging Strategies implementation</li>
+                            <li>Risk Monitoring and reporting</li>
                         </ul>
                     </div>
                 </div>
@@ -748,13 +850,13 @@
                 <div class="timeline-item animate-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>A1 Blowers India Pvt. Ltd.</h3>
-                        <p class="role">Finance Intern</p>
+                        <h3>A1 Blowers India Pvt Ltd</h3>
+                        <p style="color: var(--gold); font-weight: 600;">Finance Intern</p>
                         <ul>
-                            <li>Revenue and profitability analysis</li>
-                            <li>Financial statement preparation</li>
-                            <li>Budgeting and forecasting</li>
-                            <li>Excel-based financial analysis</li>
+                            <li>Comprehensive Financial Analysis</li>
+                            <li>Corporate Budgeting and forecasting</li>
+                            <li>Financial Reporting structure design</li>
+                            <li>Preparation of Financial Statements</li>
                         </ul>
                     </div>
                 </div>
@@ -763,105 +865,100 @@
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects Grid -->
     <section id="projects">
         <div class="container">
             <h2 class="section-title animate-up">Key Projects</h2>
-            
-            <!-- Updated Projects Section -->
             <div class="projects-grid">
                 
                 <div class="project-card animate-up">
-                    <i class="fas fa-chart-line project-icon"></i>
-                    <h3>NIFTY OIL & GAS Dashboard</h3>
-                    <ul>
-                        <li>Built an interactive stock market dashboard using Python, Streamlit, and Plotly</li>
-                        <li>Integrated real-time market data and AI-driven insights</li>
-                        <li>Designed a custom, professional light banking-report user interface</li>
-                    </ul>
+                    <i class="fas fa-file-invoice-dollar project-icon"></i>
+                    <h3>Financial Modeling & Valuation</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Comprehensive 3-statement modeling, DCF valuation, and sensitivity analysis for corporate finance scenarios.</p>
                 </div>
 
                 <div class="project-card animate-up" style="transition-delay: 0.1s;">
-                    <i class="fas fa-globe project-icon"></i>
-                    <h3>PawOrganica Strategy Roadmap</h3>
-                    <ul>
-                        <li>Developed a comprehensive business strategy and market entry roadmap for a sustainable pet food brand</li>
-                        <li>Conducted detailed PESTEL analysis and competitive landscape evaluation for the US, UK, and German markets</li>
-                    </ul>
+                    <i class="fas fa-chart-pie project-icon"></i>
+                    <h3>Portfolio Performance Dashboard</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Interactive visual dashboard designed to track returns, asset allocation, and risk metrics dynamically.</p>
                 </div>
 
                 <div class="project-card animate-up" style="transition-delay: 0.2s;">
-                    <i class="fas fa-laptop-code project-icon"></i>
-                    <h3>FinStrat Consulting Platform</h3>
-                    <ul>
-                        <li>Designed a comprehensive digital financial consulting platform simulation</li>
-                        <li>Created detailed executive summaries and tracked key financial performance metrics</li>
-                    </ul>
+                    <i class="fas fa-chart-line project-icon"></i>
+                    <h3>Equity & Derivatives Research</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">In-depth analysis of futures and options, tracking Implied Volatility and designing strategic trading setups.</p>
+                </div>
+
+                <div class="project-card animate-up" style="transition-delay: 0.3s;">
+                    <i class="fas fa-landmark project-icon"></i>
+                    <h3>Fixed Income & Bond Analysis</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Evaluation of bond pricing, yield curves, duration, convexity, and interest rate risk modeling.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Certifications & Achievements -->
+    <!-- Certifications -->
     <section id="certifications">
         <div class="container">
-            <h2 class="section-title animate-up">Certifications & Achievements</h2>
-            
+            <h2 class="section-title animate-up">Certifications & Licenses</h2>
             <div class="cert-container animate-up">
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NCFM: Financial Valuation and Modeling</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NCFM: Investment Analysis & Portfolio Management</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NCFM: Options Trading Strategies</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NCFM: Equity Derivatives</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NCFM: Wealth Management</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NCFM: Macroeconomics for Financial Markets</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NCFM: Fundamental & Technical Analysis</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> NISM Equity Derivatives</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> Financial Modeling (Udemy)</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> Investment Banking Job Simulation (Forage)</span>
-                <span class="cert-badge"><i class="fas fa-certificate"></i> Tally Prime</span>
-            </div>
-
-            <div class="achievements-grid">
-                <div class="achievement-card animate-up">
-                    <i class="fas fa-award"></i>
-                    <p>MBA Financial Markets Student with <strong>CGPA 8.50</strong></p>
-                </div>
-                <div class="achievement-card animate-up" style="transition-delay: 0.1s;">
-                    <i class="fas fa-layer-group"></i>
-                    <p>Hands-on experience in <strong>derivatives analysis</strong></p>
-                </div>
-                <div class="achievement-card animate-up" style="transition-delay: 0.2s;">
-                    <i class="fas fa-laptop-code"></i>
-                    <p>Developed rigorous <strong>financial models</strong> and valuation reports</p>
-                </div>
-                <div class="achievement-card animate-up" style="transition-delay: 0.3s;">
-                    <i class="fas fa-chart-line"></i>
-                    <p>Advanced proficiency with <strong>Power BI, Tableau, and Excel analytics</strong></p>
-                </div>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Financial Valuation and Modeling</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Investment Analysis and Portfolio Management</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Options Trading Strategies</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Equity Derivatives</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Wealth Management</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Macroeconomics for Financial Markets</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> NISM Equity Derivatives</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Financial Modeling</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Investment Banking Job Simulation</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Fundamental Analysis</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Technical Analysis</span>
+                <span class="cert-badge"><i class="fas fa-check-circle"></i> Tally Prime</span>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Resume Preview Section -->
+    <section id="resume" style="background-color: var(--navy-blue); padding-bottom: 8rem;">
+        <div class="container">
+            <h2 class="section-title animate-up" style="color: var(--gold);">Resume Preview</h2>
+            <div class="resume-container animate-up">
+                <iframe src="KAMAL LAKHA (2).pdf" width="100%" height="100%" style="border: none;">
+                    This browser does not support PDFs. Please download the PDF to view it.
+                </iframe>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;" class="animate-up">
+                <a href="KAMAL LAKHA (2).pdf" target="_blank" class="btn btn-gold"><i class="fas fa-download"></i> Download PDF Document</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2 class="section-title animate-up">Get In Touch</h2>
-            <div class="contact-content">
+            <div class="contact-grid">
                 <div class="contact-item animate-up">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
-                    <a href="mailto:lakhakamal545@gmail.com">lakhakamal545@gmail.com</a>
+                    <a href="mailto:lakhakamal545@gmail.com" class="hover-gold">lakhakamal545@gmail.com</a>
                 </div>
                 <div class="contact-item animate-up" style="transition-delay: 0.1s;">
                     <i class="fas fa-phone-alt"></i>
                     <h3>Phone</h3>
-                    <a href="tel:+917900477260">+91-7900477260</a>
+                    <a href="tel:+917900477260" class="hover-gold">+91-7900477260</a>
                 </div>
                 <div class="contact-item animate-up" style="transition-delay: 0.2s;">
                     <i class="fab fa-linkedin"></i>
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank">Connect on LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank" class="hover-gold">View Profile</a>
+                </div>
+                <div class="contact-item animate-up" style="transition-delay: 0.3s;">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/lakhakamal545-creator" target="_blank" class="hover-gold">View Repositories</a>
                 </div>
             </div>
         </div>
@@ -870,17 +967,38 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Kamal Lakha. Designed for Investment Banking & Equity Research. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="mailto:lakhakamal545@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/lakhakamal545-creator" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2026 Kamal Lakha. Portfolio crafted for Financial Markets & Investment Banking.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/917900477260" target="_blank" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="floating-btn back-top-btn" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript Features -->
     <script>
-        // Dark Mode Toggle Logic
+        // 1. Loading Screen
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // 2. Dark Mode Toggle
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = themeToggleBtn.querySelector('i');
         
-        // Check for saved theme preference
         const savedTheme = localStorage.getItem('portfolio-theme');
         if (savedTheme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
@@ -899,10 +1017,29 @@
             }
         });
 
-        // Scroll Animations using Intersection Observer
+        // 3. Scroll Animations & Progress Bars & Counters
         const observerOptions = {
             threshold: 0.1,
             rootMargin: "0px 0px -50px 0px"
+        };
+
+        const animateCounter = (el) => {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const isDecimal = target % 1 !== 0;
+            const duration = 2000;
+            const step = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    el.innerText = isDecimal ? current.toFixed(2) : Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    el.innerText = isDecimal ? target.toFixed(2) : target;
+                }
+            };
+            updateCounter();
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -910,21 +1047,40 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     
-                    // Trigger progress bar animation if inside skills section
+                    // Progress bars
                     if (entry.target.classList.contains('skill-group')) {
-                        const progressBars = entry.target.querySelectorAll('.progress');
-                        progressBars.forEach(bar => {
-                            const targetWidth = bar.getAttribute('data-width');
-                            bar.style.width = targetWidth;
-                        });
+                        const bars = entry.target.querySelectorAll('.progress');
+                        bars.forEach(bar => bar.style.width = bar.getAttribute('data-width'));
                     }
+
+                    // Counters
+                    if (entry.target.classList.contains('stat-card')) {
+                        const counter = entry.target.querySelector('.counter');
+                        if(counter && !counter.classList.contains('counted')) {
+                            animateCounter(counter);
+                            counter.classList.add('counted');
+                        }
+                    }
+
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.animate-up').forEach(element => {
-            observer.observe(element);
+        document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
+
+        // 4. Back To Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
