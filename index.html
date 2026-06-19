@@ -257,27 +257,22 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            max-height: 500px; /* Helps keep photo well-proportioned */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
+            object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
         }
 
         .hero-image:hover img {
             transform: scale(1.05);
-        }
-
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(10, 35, 66, 0.2), transparent);
         }
 
         /* About & Education */
@@ -596,7 +591,7 @@
             }
 
             .nav-links {
-                display: none; /* Mobile menu requires JS for toggle, keeping simple for now */
+                display: none; 
             }
         }
     </style>
@@ -629,11 +624,13 @@
                 <p>Results-driven MBA Finance student specializing in Financial Markets with practical experience in investment research, equity derivatives, financial modeling, valuation, portfolio analysis, and risk management. Passionate about equity research, investment banking, and financial markets.</p>
                 <div style="display: flex; gap: 1rem;">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="#" class="btn btn-gold"><i class="fas fa-download"></i> Download Resume</a>
+                    <!-- Updated Resume Link -->
+                    <a href="KAMAL LAKHA (2).pdf" target="_blank" class="btn btn-gold"><i class="fas fa-download"></i> Download Resume</a>
                 </div>
             </div>
+            <!-- Updated Profile Photo -->
             <div class="hero-image animate-up" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Financial Dashboard Analysis">
+                <img src="50KB.jpg" alt="Kamal Lakha Portfolio Photo">
             </div>
         </div>
     </section>
@@ -770,45 +767,35 @@
     <section id="projects">
         <div class="container">
             <h2 class="section-title animate-up">Key Projects</h2>
+            
+            <!-- Updated Projects Section -->
             <div class="projects-grid">
                 
                 <div class="project-card animate-up">
-                    <i class="fas fa-file-invoice-dollar project-icon"></i>
-                    <h3>Financial Modeling & Valuation</h3>
+                    <i class="fas fa-chart-line project-icon"></i>
+                    <h3>NIFTY OIL & GAS Dashboard</h3>
                     <ul>
-                        <li>Built integrated 3-statement financial models</li>
-                        <li>Conducted DCF valuation using FCFF and WACC</li>
-                        <li>Performed forecasting and sensitivity analysis</li>
+                        <li>Built an interactive stock market dashboard using Python, Streamlit, and Plotly</li>
+                        <li>Integrated real-time market data and AI-driven insights</li>
+                        <li>Designed a custom, professional light banking-report user interface</li>
                     </ul>
                 </div>
 
                 <div class="project-card animate-up" style="transition-delay: 0.1s;">
-                    <i class="fas fa-chart-pie project-icon"></i>
-                    <h3>Portfolio Performance Dashboard</h3>
+                    <i class="fas fa-globe project-icon"></i>
+                    <h3>PawOrganica Strategy Roadmap</h3>
                     <ul>
-                        <li>Developed dashboards using Power BI and Tableau</li>
-                        <li>Conducted portfolio risk-return analysis</li>
-                        <li>Asset allocation and diversification studies</li>
+                        <li>Developed a comprehensive business strategy and market entry roadmap for a sustainable pet food brand</li>
+                        <li>Conducted detailed PESTEL analysis and competitive landscape evaluation for the US, UK, and German markets</li>
                     </ul>
                 </div>
 
                 <div class="project-card animate-up" style="transition-delay: 0.2s;">
-                    <i class="fas fa-chart-bar project-icon"></i>
-                    <h3>Equity & Derivatives Research</h3>
+                    <i class="fas fa-laptop-code project-icon"></i>
+                    <h3>FinStrat Consulting Platform</h3>
                     <ul>
-                        <li>Futures and options analysis</li>
-                        <li>Open Interest and Implied Volatility studies</li>
-                        <li>Strategy back-testing</li>
-                    </ul>
-                </div>
-
-                <div class="project-card animate-up" style="transition-delay: 0.3s;">
-                    <i class="fas fa-landmark project-icon"></i>
-                    <h3>Fixed Income & Bond Analysis</h3>
-                    <ul>
-                        <li>Bond valuation models</li>
-                        <li>Duration and Convexity analysis</li>
-                        <li>Interest rate risk assessment</li>
+                        <li>Designed a comprehensive digital financial consulting platform simulation</li>
+                        <li>Created detailed executive summaries and tracked key financial performance metrics</li>
                     </ul>
                 </div>
 
