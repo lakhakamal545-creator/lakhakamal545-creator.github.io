@@ -3,1215 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kamal Lakha - MBA Financial Markets Portfolio. Specializing in Equity Research, Financial Modeling, and Derivatives Analysis.">
-    <meta name="keywords" content="Kamal Lakha, Finance Portfolio, Equity Research, Financial Modeling, Derivatives Analysis, Investment Banking">
-    <meta property="og:title" content="Kamal Lakha | Financial Markets Portfolio">
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Kamal Lakha - MBA Financial Markets Portfolio. Specializing in Equity Research, Investment Banking, and Financial Modeling.">
+    <meta name="keywords" content="Kamal Lakha, Finance Portfolio, Equity Research, Financial Modeling, Investment Banking, Derivatives Analysis">
+    <meta name="author" content="Kamal Lakha">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Kamal Lakha | Premium Finance Portfolio">
     <meta property="og:description" content="MBA Finance professional specializing in Equity Research and Investment Banking.">
     <meta property="og:image" content="KL.jpeg">
     <meta property="og:type" content="website">
-    <title>Kamal Lakha | Financial Markets Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Kamal Lakha | Financial Markets & Equity Research</title>
+    
+    <!-- Google Fonts: Inter for UI, Playfair Display for Luxury Headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* CSS Variables & Theme Definitions - Light Banking Report Theme Default */
-        :root {
-            --navy-blue: #0A2342;
-            --navy-light: #173f70;
-            --gold: #C5A059;
-            --gold-hover: #dfb668;
-            --white: #ffffff;
-            --bg-primary: #f8f9fa;
-            --bg-secondary: #ffffff;
-            --text-primary: #1a1a1a;
-            --text-secondary: #4a5568;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --shadow: 0 8px 32px rgba(10, 35, 66, 0.1);
-            --border-color: #e2e8f0;
-            --excel-green: #21A366;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        [data-theme="dark"] {
-            --navy-blue: #0A192F;
-            --navy-light: #112240;
-            --gold: #D4AF37;
-            --gold-hover: #F3C94F;
-            --bg-primary: #020c1b;
-            --bg-secondary: #0A192F;
-            --text-primary: #f8fafc;
-            --text-secondary: #a8b2d1;
-            --glass-bg: rgba(10, 25, 47, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --border-color: #233554;
-            --excel-green: #2ecc71;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            transition: var(--transition);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--text-primary);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        section:nth-child(even) {
-            background-color: var(--bg-secondary);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            position: relative;
-            color: var(--navy-blue);
-        }
-
-        [data-theme="dark"] .section-title {
-            color: var(--gold);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        /* Loading Screen */
-        #loader {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--navy-blue);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease;
-        }
-        .spinner {
-            width: 50px; height: 50px;
-            border: 5px solid rgba(255,255,255,0.2);
-            border-top-color: var(--gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        /* Navbar (Glassmorphism) */
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        /* Hero Section with Animated Background */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            position: relative;
-            background: linear-gradient(-45deg, var(--navy-blue), var(--navy-light), #0f3057, #1b4965);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: var(--white);
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-            z-index: 2;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: var(--white);
-            letter-spacing: -1px;
-        }
-
-        .hero-text h2 {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.8rem 1.8rem;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 2px solid transparent;
-        }
-
-        .btn-gold {
-            background-color: var(--gold);
-            color: var(--navy-blue);
-        }
-
-        .btn-gold:hover {
-            background-color: var(--gold-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border-color: var(--white);
-            color: var(--white);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--navy-blue);
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border: 4px solid var(--gold);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-            object-fit: cover;
-        }
-
-        /* Open To Work Banner */
-        .otw-banner {
-            background: var(--gold);
-            color: var(--navy-blue);
-            padding: 1rem 0;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .otw-banner span {
-            margin: 0 1rem;
-            display: inline-block;
-        }
-
-        /* About & Education */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        .edu-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .edu-item:last-child { border: none; margin: 0; padding: 0; }
-        
-        .edu-item h4 { font-size: 1.3rem; margin-bottom: 0.3rem; }
-        .edu-item p { color: var(--gold); font-weight: 600; }
-        .edu-item .cgpa { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem; }
-
-        /* Key Highlights Dashboard */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--gold);
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            color: var(--navy-blue);
-            margin-bottom: 1rem;
-        }
-        [data-theme="dark"] .stat-icon { color: var(--gold); }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
-        }
-
-        /* Technical Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .skill-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .progress-bar {
-            height: 8px;
-            background-color: var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: var(--navy-blue);
-            width: 0;
-            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
-        }
-        [data-theme="dark"] .progress { background-color: var(--gold); }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 20px;
-            height: 100%; width: 2px;
-            background: var(--border-color);
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-            padding-left: 60px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 11px; top: 5px;
-            width: 20px; height: 20px;
-            background: var(--gold);
-            border-radius: 50%;
-            border: 4px solid var(--bg-primary);
-        }
-
-        .timeline-content {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        .timeline-content h3 { color: var(--navy-blue); margin-bottom: 0.5rem; }
-        [data-theme="dark"] .timeline-content h3 { color: var(--gold); }
-        
-        .timeline-content ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-        
-        .timeline-content ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-        }
-        
-        .timeline-content ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-        }
-
-        /* NEW ADDITIONS FOR ADVANCED PROJECTS SECTION */
-        
-        .skills-list-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .tag-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-primary);
-            font-weight: 500;
-            background: var(--bg-secondary);
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-        }
-
-        .tag-item i {
-            color: var(--gold);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-        }
-
-        .project-card {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--navy-blue);
-            transition: var(--transition);
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-        }
-        [data-theme="dark"] .project-card { border-top-color: var(--gold); }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.15);
-        }
-
-        .project-icon {
-            font-size: 2.5rem;
-            color: var(--navy-blue);
-            margin-bottom: 0;
-        }
-        [data-theme="dark"] .project-icon { color: var(--gold); }
-
-        .project-card h3 { font-size: 1.5rem; margin-bottom: 0; }
-
-        .excel-badge {
-            background: rgba(33, 163, 102, 0.1);
-            color: var(--excel-green);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            border: 1px solid rgba(33, 163, 102, 0.3);
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 1rem 0 2rem 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
-        }
-
-        .feature-list.single-col {
-            grid-template-columns: 1fr;
-        }
-
-        .feature-list li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .feature-list li::before {
-            content: '▹';
-            color: var(--gold);
-            font-weight: bold;
-        }
-
-        /* Certifications */
-        .cert-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .cert-badge {
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .cert-badge i { color: var(--gold); }
-
-        .cert-badge:hover {
-            background: var(--navy-blue);
-            color: var(--white);
-            transform: scale(1.05);
-            border-color: var(--navy-blue);
-        }
-        [data-theme="dark"] .cert-badge:hover {
-            background: var(--gold);
-            color: var(--navy-blue);
-            border-color: var(--gold);
-        }
-
-        /* Resume Embedded */
-        .resume-container {
-            width: 100%;
-            height: 700px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .contact-item {
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        .contact-item i {
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .contact-item a {
-            display: block;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--navy-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 3px solid var(--gold);
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-icons a {
-            color: var(--white);
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .social-icons a:hover {
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-
-        /* Floating Buttons */
-        .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 100;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .whatsapp-btn {
-            right: 30px;
-            background-color: #25D366;
-        }
-        .whatsapp-btn:hover { background-color: #1ebd5a; transform: scale(1.1); }
-
-        .back-top-btn {
-            right: 90px;
-            background-color: var(--gold);
-            opacity: 0;
-            pointer-events: none;
-        }
-        .back-top-btn.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .back-top-btn:hover { background-color: var(--gold-hover); transform: scale(1.1); }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
-            .hero-buttons { justify-content: center; }
-            .hero-image { max-width: 400px; margin: 0 auto; }
-            .about-grid, .skills-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; } 
-            .feature-list { grid-template-columns: 1fr; }
-        }
-
-        /* Scroll Animations */
-        .animate-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .animate-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode" id="body">
+    <!-- Global Mouse Glow Effect -->
+    <div class="mouse-glow"></div>
 
-    <div id="loader">
-        <div class="spinner"></div>
+    <!-- Page Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-spinner"></div>
     </div>
 
-    <nav>
-        <div class="container nav-container">
-            <a href="#" class="logo">PORTFOLIO</a>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#resume">Resume</a>
-                <a href="#contact">Contact</a>
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
+    <!-- Sticky Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">KL<span>.</span></a>
+            
+            <div class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#resume" class="nav-link">Resume</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
                 </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <div class="hero-text animate-up">
-                <h1>Kamal Lakha</h1>
-                <h2>MBA (Financial Markets) | Equity Research | Financial Modeling | Derivatives Analysis</h2>
-                <p>Results-driven MBA Finance student specializing in Financial Markets with practical experience in investment research, equity derivatives, financial modeling, valuation, portfolio analysis, and risk management. Passionate about equity research and capital markets.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Floating Finance Icons (Background) -->
+        <i class="fas fa-chart-line floating-icon icon-1"></i>
+        <i class="fas fa-chart-pie floating-icon icon-2"></i>
+        <i class="fas fa-coins floating-icon icon-3"></i>
+        <i class="fas fa-globe floating-icon icon-4"></i>
+
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <p class="hero-greeting">Welcome, I am</p>
+                <h1 class="hero-name">Kamal Lakha</h1>
+                <div class="typing-container">
+                    <span class="static-text">I specialize in</span>
+                    <span class="typed-text" id="typed-text"></span><span class="cursor">&nbsp;</span>
+                </div>
+                <p class="hero-bio">
+                    MBA Financial Markets professional driven by data, valuation, and capital markets. Passionate about uncovering value through rigorous equity research and advanced financial modeling.
+                </p>
                 <div class="hero-buttons">
-                    <a href="KAMAL LAKHA (2).pdf" target="_blank" class="btn btn-gold"><i class="fas fa-download"></i> Download Resume</a>
-                    <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/lakhakamal545-creator" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+                    <a href="KAMAL LAKHA (2).pdf" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/lakhakamal545-creator" target="_blank" class="btn btn-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image animate-up" style="transition-delay: 0.2s;">
-                <img src="KL.jpeg" alt="Kamal Lakha">
+            <div class="hero-image-wrapper reveal delay-1">
+                <div class="image-frame tilt-card">
+                    <img src="KL.jpeg" alt="Kamal Lakha - Financial Professional" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="otw-banner">
-        <span><i class="fas fa-briefcase"></i> Open to Opportunities in:</span>
-        <span>• Equity Research</span>
-        <span>• Investment Banking</span>
-        <span>• Financial Analysis</span>
-        <span>• Risk Management</span>
-        <span>• Capital Markets</span>
-    </div>
+    <!-- Dashboard (KPIs) -->
+    <section class="dashboard container" id="dashboard">
+        <div class="kpi-grid">
+            <div class="kpi-card reveal tilt-card">
+                <i class="fas fa-graduation-cap kpi-icon"></i>
+                <div class="kpi-value"><span class="counter" data-target="8.50">0</span></div>
+                <div class="kpi-label">MBA CGPA</div>
+            </div>
+            <div class="kpi-card reveal delay-1 tilt-card">
+                <i class="fas fa-briefcase kpi-icon"></i>
+                <div class="kpi-value"><span class="counter" data-target="2">0</span></div>
+                <div class="kpi-label">Finance Internships</div>
+            </div>
+            <div class="kpi-card reveal delay-2 tilt-card">
+                <i class="fas fa-certificate kpi-icon"></i>
+                <div class="kpi-value"><span class="counter" data-target="12">0</span>+</div>
+                <div class="kpi-label">Certifications</div>
+            </div>
+            <div class="kpi-card reveal delay-3 tilt-card">
+                <i class="fas fa-chart-network kpi-icon"></i>
+                <div class="kpi-value"><span class="counter" data-target="20">0</span>+</div>
+                <div class="kpi-label">Models Built</div>
+            </div>
+        </div>
+    </section>
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title animate-up">Profile & Education</h2>
-            <div class="about-grid">
-                <div class="glass-card animate-up">
-                    <h3><i class="fas fa-user-tie" style="color: var(--gold); margin-right: 10px;"></i> About Me</h3>
-                    <p style="margin-top: 1rem; color: var(--text-secondary);">Hi, I'm Kamal Lakha, an MBA in Financial Markets passionate about investing, trading, and financial analysis. My expertise includes equity research, financial modeling, company valuation, derivatives analysis, and portfolio management. I enjoy analyzing businesses, identifying investment opportunities, and turning complex financial data into meaningful insights. My goal is to build a successful career in investment research and the financial markets industry.</p>
+    <!-- About Section -->
+    <section class="about section-padding container" id="about">
+        <div class="section-header reveal">
+            <h2 class="section-title">Professional Overview</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <h3>Executive Summary</h3>
+                <p>I am a results-oriented MBA student specializing in Financial Markets with a proven track record in applying theoretical concepts to real-world market scenarios. My academic rigor at Lovely Professional University is complemented by hands-on experience in derivatives analysis, portfolio management, and corporate valuation.</p>
+                <p>My career objective is to leverage my analytical acumen and deep understanding of capital markets to drive strategic investment decisions within a premier equity research or investment banking environment.</p>
+            </div>
+            <div class="education-timeline reveal delay-1">
+                <h3>Academic Pedigree</h3>
+                <div class="edu-card glass-panel">
+                    <div class="edu-year">2024 - Present</div>
+                    <h4 class="edu-degree">MBA (Financial Markets)</h4>
+                    <p class="edu-school">Lovely Professional University</p>
+                    <p class="edu-grade">CGPA: 8.50</p>
                 </div>
-                <div class="glass-card animate-up" style="transition-delay: 0.2s;">
-                    <h3><i class="fas fa-graduation-cap" style="color: var(--gold); margin-right: 10px;"></i> Education</h3>
-                    <div style="margin-top: 1.5rem;">
-                        <div class="edu-item">
-                            <h4>Lovely Professional University</h4>
-                            <p>MBA Financial Markets</p>
-                            <p class="cgpa"><i class="fas fa-star"></i> CGPA 8.50</p>
-                        </div>
-                        <div class="edu-item">
-                            <h4>Teerthanker Mahaveer University</h4>
-                            <p>Bachelor of Commerce</p>
-                            <p class="cgpa"><i class="fas fa-star"></i> CGPA 7.00</p>
+                <div class="edu-card glass-panel">
+                    <div class="edu-year">Graduated</div>
+                    <h4 class="edu-degree">Bachelor of Commerce</h4>
+                    <p class="edu-school">Teerthanker Mahaveer University</p>
+                    <p class="edu-grade">CGPA: 7.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section (Cards, No Progress Bars) -->
+    <section class="skills section-padding container" id="skills">
+        <div class="section-header reveal">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="skills-grid">
+            <!-- Skill Cards -->
+            <div class="skill-card reveal tilt-card"><i class="fas fa-building"></i> <span>Investment Banking</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-search-dollar"></i> <span>Equity Research</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-file-invoice-dollar"></i> <span>Financial Modeling</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-project-diagram"></i> <span>DCF Valuation</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-table"></i> <span>Advanced Excel</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-chart-pie"></i> <span>Power BI</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fab fa-python"></i> <span>Python</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-database"></i> <span>SQL</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-terminal"></i> <span>Bloomberg Terminal</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-globe-americas"></i> <span>Reuters Eikon</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-chart-line"></i> <span>Technical Analysis</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-briefcase"></i> <span>Portfolio Management</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-shield-alt"></i> <span>Risk Management</span></div>
+            <div class="skill-card reveal tilt-card"><i class="fas fa-random"></i> <span>Derivatives Analysis</span></div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="experience section-padding container" id="experience">
+        <div class="section-header reveal">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="exp-timeline">
+            
+            <div class="exp-item reveal">
+                <div class="exp-dot"></div>
+                <div class="exp-content glass-panel tilt-card">
+                    <div class="exp-header">
+                        <div class="exp-logo-placeholder"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <h3>Equity Derivatives Intern</h3>
+                            <h4>Nirmal Bang Securities Pvt. Ltd.</h4>
                         </div>
                     </div>
+                    <ul class="exp-list">
+                        <li>Executed comprehensive equity derivatives analysis utilizing advanced futures and options strategies.</li>
+                        <li>Evaluated Option Greeks and conducted in-depth implied volatility analysis to optimize trade cycle management.</li>
+                        <li>Implemented risk monitoring protocols and formulated dynamic hedging strategies to mitigate portfolio exposure.</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="dashboard-grid">
-                <div class="stat-card animate-up">
-                    <i class="fas fa-chart-line stat-icon"></i>
-                    <div class="stat-number"><span class="counter" data-target="2">0</span>+</div>
-                    <div class="stat-label">Years Trading Experience</div>
-                </div>
-                <div class="stat-card animate-up" style="transition-delay: 0.1s;">
-                    <i class="fas fa-certificate stat-icon"></i>
-                    <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
-                    <div class="stat-label">Certifications</div>
-                </div>
-                <div class="stat-card animate-up" style="transition-delay: 0.2s;">
-                    <i class="fas fa-layer-group stat-icon"></i>
-                    <div class="stat-number"><span class="counter" data-target="20">0</span>+</div>
-                    <div class="stat-label">Option Strategies Modeled</div>
-                </div>
-                <div class="stat-card animate-up" style="transition-delay: 0.3s;">
-                    <i class="fas fa-building stat-icon"></i>
-                    <div class="stat-number"><span class="counter" data-target="2">0</span></div>
-                    <div class="stat-label">Finance Internships</div>
+            <div class="exp-item reveal">
+                <div class="exp-dot"></div>
+                <div class="exp-content glass-panel tilt-card">
+                    <div class="exp-header">
+                        <div class="exp-logo-placeholder"><i class="fas fa-industry"></i></div>
+                        <div>
+                            <h3>Finance Intern</h3>
+                            <h4>A1 Blowers India Pvt. Ltd.</h4>
+                        </div>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Conducted rigorous revenue and profitability analysis to support corporate strategic planning.</li>
+                        <li>Assisted in the preparation of financial statements and executed complex Excel-based financial analyses.</li>
+                        <li>Developed forecasting models to streamline corporate budgeting processes and financial reporting.</li>
+                    </ul>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title animate-up">Technical Expertise</h2>
-            <div class="skills-grid">
+    <!-- Projects Section -->
+    <section class="projects section-padding container" id="projects">
+        <div class="section-header reveal">
+            <h2 class="section-title">Investment Research & Models</h2>
+            <div class="title-underline"></div>
+        </div>
+        
+        <div class="project-grid-main">
+            
+            <!-- Project 1 -->
+            <div class="premium-project-card glass-panel reveal">
+                <div class="project-header">
+                    <h3>LG Financial Model</h3>
+                    <div class="tech-stack">
+                        <span>DCF</span><span>WACC</span><span>Excel</span>
+                    </div>
+                </div>
+                <p class="project-desc">A comprehensive corporate finance model projecting future performance and estimating intrinsic company value using core investment banking methodologies.</p>
                 
-                <div class="skill-group animate-up">
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Financial Modeling & DCF Valuation</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Equity Research & Fundamental Analysis</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Equity Derivatives & Options Trading</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="88%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Technical Analysis</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
-                    </div>
+                <div class="project-iframe-container">
+                    <div class="iframe-placeholder">Live Excel Preview Loading...</div>
+                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://lakhakamal545-creator.github.io/LG.xlsx" frameborder="0"></iframe>
                 </div>
 
-                <div class="skill-group animate-up" style="transition-delay: 0.2s;">
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Portfolio & Risk Management</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Advanced Excel & SQL</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Power BI & Tableau</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Bloomberg Terminal & Reuters Eikon</span></div>
-                        <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title animate-up">Experience Timeline</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item animate-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Nirmal Bang Securities Pvt. Ltd.</h3>
-                        <p style="color: var(--gold); font-weight: 600;">Equity Derivatives Intern</p>
-                        <ul>
-                            <li>Equity Derivatives Analysis</li>
-                            <li>Option Greeks evaluation and tracking</li>
-                            <li>Volatility Analysis for market trends</li>
-                            <li>Trade Cycle Management execution</li>
-                            <li>Hedging Strategies implementation</li>
-                            <li>Risk Monitoring and reporting</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item animate-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>A1 Blowers India Pvt Ltd</h3>
-                        <p style="color: var(--gold); font-weight: 600;">Finance Intern</p>
-                        <ul>
-                            <li>Comprehensive Financial Analysis</li>
-                            <li>Corporate Budgeting and forecasting</li>
-                            <li>Financial Reporting structure design</li>
-                            <li>Preparation of Financial Statements</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title animate-up">Financial Models & Projects</h2>
-
-            <div class="skills-list-tags animate-up">
-                <div class="tag-item"><i class="fas fa-check-circle"></i> Financial Modeling</div>
-                <div class="tag-item"><i class="fas fa-check-circle"></i> Valuation</div>
-                <div class="tag-item"><i class="fas fa-check-circle"></i> Equity Research</div>
-                <div class="tag-item"><i class="fas fa-check-circle"></i> Portfolio Analysis</div>
-                <div class="tag-item"><i class="fas fa-check-circle"></i> Derivatives Analysis</div>
-                <div class="tag-item"><i class="fas fa-check-circle"></i> Advanced Excel</div>
-            </div>
-
-            <div class="projects-grid">
-                
-                <div class="project-card animate-up" style="grid-column: 1 / -1;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <i class="fas fa-building project-icon"></i>
-                            <h3>LG Financial Model</h3>
-                        </div>
-                        <div class="excel-badge">
-                            <i class="fas fa-file-excel"></i> Excel Model
-                        </div>
-                    </div>
-                    
-                    <p style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 0.5rem;">A comprehensive corporate finance model for LG, designed to project future performance and estimate intrinsic company value using core investment banking methodologies.</p>
-                    
-                    <h4 style="font-size: 0.85rem; color: var(--gold); margin-top: 1rem; text-transform: uppercase; letter-spacing: 1px;">Key Components</h4>
+                <div class="project-footer">
                     <ul class="feature-list">
-                        <li>Three Statement Financial Model (IS, BS, CFS)</li>
-                        <li>Discounted Cash Flow (DCF) Valuation</li>
-                        <li>Weighted Average Cost of Capital (WACC)</li>
-                        <li>Revenue Forecasting & Projections</li>
-                        <li>Financial Ratio Analysis</li>
-                        <li>Intrinsic Value Estimation</li>
+                        <li><i class="fas fa-check"></i> Three Statement Model</li>
+                        <li><i class="fas fa-check"></i> Intrinsic Value Estimation</li>
                     </ul>
-                    
-                    <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
-                        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://lakhakamal545-creator.github.io/LG.xlsx" width="100%" height="100%" frameborder="0"></iframe>
-                    </div>
+                    <a href="LG.xlsx" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download Model</a>
+                </div>
+            </div>
 
-                    <a href="LG.xlsx" class="btn btn-gold" style="padding: 0.8rem 1.5rem; font-size: 0.95rem; text-align: center;"><i class="fas fa-download"></i> Download LG Model</a>
+            <!-- Project 2 -->
+            <div class="premium-project-card glass-panel reveal">
+                <div class="project-header">
+                    <h3>L&T Financial Model</h3>
+                    <div class="tech-stack">
+                        <span>3-Statement</span><span>Valuation</span><span>Excel</span>
+                    </div>
+                </div>
+                <p class="project-desc">Rigorous 3-statement modeling, DCF valuation, and sensitivity analysis for Larsen & Toubro to evaluate investment viability.</p>
+                
+                <div class="project-iframe-container">
+                    <div class="iframe-placeholder">Live Excel Preview Loading...</div>
+                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://lakhakamal545-creator.github.io/LARSEN%20%26%20TOUBRO.xlsx" frameborder="0"></iframe>
                 </div>
 
-                <div class="project-card animate-up" style="grid-column: 1 / -1;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <i class="fas fa-chart-line project-icon"></i>
-                            <h3>Options Payoff Simulator</h3>
-                        </div>
-                        <div class="excel-badge">
-                            <i class="fas fa-file-excel"></i> Excel Model
-                        </div>
-                    </div>
-                    
-                    <p style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 0.5rem;">An advanced derivatives trading simulator mapping profit/loss profiles across diverse market scenarios. Features automated charting for complex multi-leg setups.</p>
-                    
-                    <h4 style="font-size: 0.85rem; color: var(--gold); margin-top: 1rem; text-transform: uppercase; letter-spacing: 1px;">Strategies Modeled</h4>
+                <div class="project-footer">
                     <ul class="feature-list">
-                        <li>Call / Put Payoffs</li>
-                        <li>Covered Call & Protective Put</li>
-                        <li>Long / Short Straddle</li>
-                        <li>Long / Short Strangle</li>
-                        <li>Bull Call / Put Spread</li>
-                        <li>Bear Call / Put Spread</li>
-                        <li>Butterfly Strategies</li>
-                        <li>Condor Strategies</li>
+                        <li><i class="fas fa-check"></i> Sensitivity Analysis</li>
+                        <li><i class="fas fa-check"></i> Corporate Scenario Modeling</li>
                     </ul>
-                    
-                    <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
-                        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://lakhakamal545-creator.github.io/PAY%20OFF%20OPTIONS.xlsx" width="100%" height="100%" frameborder="0"></iframe>
-                    </div>
+                    <a href="LARSEN & TOUBRO.xlsx" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download Model</a>
+                </div>
+            </div>
 
-                    <a href="PAY%20OFF%20OPTIONS.xlsx" class="btn btn-gold" style="padding: 0.8rem 1.5rem; font-size: 0.95rem; text-align: center;"><i class="fas fa-download"></i> Download Options Model</a>
+            <!-- Project 3 -->
+            <div class="premium-project-card glass-panel reveal">
+                <div class="project-header">
+                    <h3>Options Payoff Simulator</h3>
+                    <div class="tech-stack">
+                        <span>Derivatives</span><span>Strategy</span><span>Excel</span>
+                    </div>
+                </div>
+                <p class="project-desc">Advanced derivatives trading simulator mapping profit/loss profiles across diverse market scenarios with automated payoff charts.</p>
+                
+                <div class="project-iframe-container">
+                    <div class="iframe-placeholder">Live Excel Preview Loading...</div>
+                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://lakhakamal545-creator.github.io/PAY%20OFF%20OPTIONS.xlsx" frameborder="0"></iframe>
                 </div>
 
-                <div class="project-card animate-up" style="grid-column: 1 / -1;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <i class="fas fa-industry project-icon"></i>
-                            <h3>L&T Financial Model</h3>
-                        </div>
-                        <div class="excel-badge">
-                            <i class="fas fa-file-excel"></i> Excel Model
-                        </div>
-                    </div>
-                    
-                    <p style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 0.5rem;">Comprehensive 3-statement modeling, DCF valuation, and sensitivity analysis for Larsen & Toubro.</p>
-                    
-                    <h4 style="font-size: 0.85rem; color: var(--gold); margin-top: 1rem; text-transform: uppercase; letter-spacing: 1px;">Key Components</h4>
-                    <ul class="feature-list single-col">
-                        <li>Financial Statement Projections</li>
-                        <li>DCF & Relative Valuation</li>
-                        <li>Corporate Finance Scenario Analysis</li>
+                <div class="project-footer">
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Straddles & Strangles</li>
+                        <li><i class="fas fa-check"></i> Iron Condors & Butterfly</li>
                     </ul>
-                    
-                    <div style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
-                        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https://lakhakamal545-creator.github.io/LARSEN%20%26%20TOUBRO.xlsx" width="100%" height="100%" frameborder="0"></iframe>
+                    <a href="PAY OFF OPTIONS.xlsx" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download Model</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications section-padding container" id="certifications">
+        <div class="section-header reveal">
+            <h2 class="section-title">Licenses & Certifications</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-award gold-text"></i> NCFM: Financial Valuation & Modeling</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-award gold-text"></i> NCFM: Investment Analysis & Portfolio</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-award gold-text"></i> NCFM: Options Trading Strategies</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-award gold-text"></i> NCFM: Equity Derivatives</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-award gold-text"></i> NCFM: Wealth Management</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-award gold-text"></i> NCFM: Macroeconomics</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-certificate gold-text"></i> NISM: Equity Derivatives</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-certificate gold-text"></i> Forage: Investment Banking Simulation</div>
+            <div class="cert-card glass-panel reveal tilt-card"><i class="fas fa-certificate gold-text"></i> Udemy: Financial Modeling</div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume section-padding container" id="resume">
+        <div class="section-header reveal">
+            <h2 class="section-title">Curriculum Vitae</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="resume-wrapper glass-panel reveal">
+            <div class="pdf-container">
+                <iframe src="KAMAL LAKHA (2).pdf" title="Kamal Lakha Resume"></iframe>
+            </div>
+            <div class="resume-actions">
+                <a href="KAMAL LAKHA (2).pdf" target="_blank" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Download Official Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-padding container" id="contact">
+        <div class="section-header reveal">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <h3>Contact Information</h3>
+                <p>Open to opportunities in Equity Research, Investment Banking, and Corporate Finance across top-tier global institutions.</p>
+                
+                <div class="info-items">
+                    <a href="mailto:lakhakamal545@gmail.com" class="info-item glass-panel tilt-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>lakhakamal545@gmail.com</span>
+                    </a>
+                    <a href="tel:+917900477260" class="info-item glass-panel tilt-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 7900477260</span>
+                    </a>
+                    <a href="https://wa.me/917900477260" target="_blank" class="info-item glass-panel tilt-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Me</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank" class="info-item glass-panel tilt-card">
+                        <i class="fab fa-linkedin"></i>
+                        <span>Connect on LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper glass-panel reveal delay-1">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('In a production environment, this would connect to a backend like Formspree or EmailJS. Please use the direct email link provided.');">
+                    <h3>Send a Direct Message</h3>
+                    <div class="input-group">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Full Name</label>
                     </div>
-
-                    <a href="LARSEN%20%26%20TOUBRO.xlsx" class="btn btn-gold" style="padding: 0.8rem 1.5rem; font-size: 0.95rem; text-align: center;"><i class="fas fa-download"></i> Download L&T Model</a>
-                </div>
-
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Corporate Email</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" rows="4" required placeholder=" "></textarea>
+                        <label for="message">Your Message / Inquiry</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Secure Message <i class="fas fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
     </section>
 
-    <section id="certifications">
-        <div class="container">
-            <h2 class="section-title animate-up">Certifications & Licenses</h2>
-            <div class="cert-container animate-up">
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Financial Valuation and Modeling</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Investment Analysis and Portfolio Management</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Options Trading Strategies</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Equity Derivatives</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Wealth Management</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Macroeconomics for Financial Markets</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> NISM Equity Derivatives</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Financial Modeling</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Investment Banking Job Simulation</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Fundamental Analysis</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Technical Analysis</span>
-                <span class="cert-badge"><i class="fas fa-check-circle"></i> Tally Prime</span>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>KL.</h2>
+                <p>Excellence in Financial Markets</p>
             </div>
-        </div>
-    </section>
-
-    <section id="resume" style="background-color: var(--navy-blue); padding-bottom: 8rem;">
-        <div class="container">
-            <h2 class="section-title animate-up" style="color: var(--gold);">Resume Preview</h2>
-            <div class="resume-container animate-up">
-                <iframe src="KAMAL LAKHA (2).pdf" width="100%" height="100%" style="border: none;">
-                    This browser does not support PDFs. Please download the PDF to view it.
-                </iframe>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;" class="animate-up">
-                <a href="KAMAL LAKHA (2).pdf" target="_blank" class="btn btn-gold"><i class="fas fa-download"></i> Download PDF Document</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title animate-up">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-item animate-up">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:lakhakamal545@gmail.com" class="hover-gold">lakhakamal545@gmail.com</a>
-                </div>
-                <div class="contact-item animate-up" style="transition-delay: 0.1s;">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>Phone</h3>
-                    <a href="tel:+917900477260" class="hover-gold">+91-7900477260</a>
-                </div>
-                <div class="contact-item animate-up" style="transition-delay: 0.2s;">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank" class="hover-gold">View Profile</a>
-                </div>
-                <div class="contact-item animate-up" style="transition-delay: 0.3s;">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/lakhakamal545-creator" target="_blank" class="hover-gold">View Repositories</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="social-icons">
-                <a href="mailto:lakhakamal545@gmail.com"><i class="fas fa-envelope"></i></a>
+            <div class="footer-social">
                 <a href="https://www.linkedin.com/in/kamal-lakha-7b1548230" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/lakhakamal545-creator" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:lakhakamal545@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <p>&copy; 2026 Kamal Lakha. Portfolio crafted for Financial Markets & Investment Banking.</p>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kamal Lakha. Designed for Investment Banking & Equity Research. All Rights Reserved.</p>
+        </div>
+        
+        <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Back to Top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
     </footer>
 
-    <a href="https://wa.me/917900477260" target="_blank" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <div class="floating-btn back-top-btn" id="backToTop" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <script>
-        // 1. Loading Screen
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        });
-
-        // 2. Dark Mode Toggle
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = themeToggleBtn.querySelector('i');
-        
-        const savedTheme = localStorage.getItem('portfolio-theme');
-        if (savedTheme === 'dark') {
-            document.body.setAttribute('data-theme', 'dark');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (document.body.getAttribute('data-theme') === 'dark') {
-                document.body.removeAttribute('data-theme');
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('portfolio-theme', 'light');
-            } else {
-                document.body.setAttribute('data-theme', 'dark');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('portfolio-theme', 'dark');
-            }
-        });
-
-        // 3. Scroll Animations & Progress Bars & Counters
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const animateCounter = (el) => {
-            const target = parseFloat(el.getAttribute('data-target'));
-            const isDecimal = target % 1 !== 0;
-            const duration = 2000;
-            const step = target / (duration / 16); // 60fps
-            let current = 0;
-
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    el.innerText = isDecimal ? current.toFixed(2) : Math.ceil(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    el.innerText = isDecimal ? target.toFixed(2) : target;
-                }
-            };
-            updateCounter();
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Progress bars
-                    if (entry.target.classList.contains('skill-group')) {
-                        const bars = entry.target.querySelectorAll('.progress');
-                        bars.forEach(bar => bar.style.width = bar.getAttribute('data-width'));
-                    }
-
-                    // Counters
-                    if (entry.target.classList.contains('stat-card')) {
-                        const counter = entry.target.querySelector('.counter');
-                        if(counter && !counter.classList.contains('counted')) {
-                            animateCounter(counter);
-                            counter.classList.add('counted');
-                        }
-                    }
-
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
-
-        // 4. Back To Top Button
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
